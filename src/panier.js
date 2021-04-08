@@ -72,7 +72,7 @@ console.log(JSON.stringify(products))
     email : email
   }
 
-  fetch(`https://ab-p5-api.herokuapp.com/api/teddies/order`, {
+  fetch(apiUrl+"order", {
     method: 'POST',
     body: JSON.stringify({contact, products}),
   
@@ -114,5 +114,4 @@ if(!localStorage.nombreDeProduit){
 } else {
   document.getElementById("itemNumb").innerHTML = localStorage.nombreDeProduit
 }
-
 

@@ -1,5 +1,5 @@
 
-fetch(`https://ab-p5-api.herokuapp.com/api/teddies`)
+fetch(apiUrl)
 .then(response => {
     if (response.ok){
         return response.json();
@@ -40,4 +40,9 @@ fetch(`https://ab-p5-api.herokuapp.com/api/teddies`)
 })
 
 
-document.getElementById("itemNumb").innerHTML = localStorage.nombreDeProduit
+if(!localStorage.nombreDeProduit){
+    document.getElementById("itemNumb").innerHTML = 0
+  } else {
+    document.getElementById("itemNumb").innerHTML = localStorage.nombreDeProduit
+  }
+  

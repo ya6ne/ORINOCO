@@ -2,7 +2,7 @@ let params = new URLSearchParams(document.location.search.substring(1)); /* recu
 let id = params.get("id");
 console.log(id);
 
-fetch(`https://ab-p5-api.herokuapp.com/api/teddies/`+ id)
+fetch(apiUrl + id)
 .then(response => {
     if (response.ok){
         return response.json();
@@ -53,8 +53,12 @@ fetch(`https://ab-p5-api.herokuapp.com/api/teddies/`+ id)
     console.log("Il y a eu un problème avec l\'opération fetch");
 })
 
-document.getElementById("itemNumb").innerHTML = localStorage.nombreDeProduit
-
+if(!localStorage.nombreDeProduit){
+    document.getElementById("itemNumb").innerHTML = 0
+  } else {
+    document.getElementById("itemNumb").innerHTML = localStorage.nombreDeProduit
+  }
+  
 
 
 
