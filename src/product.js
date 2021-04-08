@@ -2,7 +2,7 @@ let params = new URLSearchParams(document.location.search.substring(1)); /* recu
 let id = params.get("id");
 console.log(id);
 
-fetch(`http://localhost:3000/api/teddies/`+ id)
+fetch(`https://ab-p5-api.herokuapp.com/api/teddies/`+ id)
 .then(response => {
     if (response.ok){
         return response.json();
@@ -52,6 +52,9 @@ fetch(`http://localhost:3000/api/teddies/`+ id)
 .catch(e => {
     console.log("Il y a eu un problème avec l\'opération fetch");
 })
+
+document.getElementById("itemNumb").innerHTML = localStorage.nombreDeProduit
+
 
 
 

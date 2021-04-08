@@ -1,40 +1,43 @@
 
-fetch(`http://localhost:3000/api/teddies`)
+fetch(`https://ab-p5-api.herokuapp.com/api/teddies`)
 .then(response => {
     if (response.ok){
         return response.json();
         
     }else {
-        throw 'ERREUR API';
+        throw 'Mauvaise réponse du réseau';
     }
 })
 .then(data => { /* html pour les peluches */
     console.log(data);
-    const html = data.map(info => {
+    const allCards = data.map(eachTeddie => {
         return `<div class="col-12 col-lg-4">
         <div class="card">
 
-            <img class="card-img-top" src="${info.imageUrl}" alt="photo">
+            <img class="card-img-top" src="${eachTeddie.imageUrl}" alt="photo">
 
             <div class="card-body">
-                <h5 class="card-title">${info.name}</h5>
+                <h5 class="card-title">${eachTeddie.name}</h5>
 
                 
                 <p class="card-text">
-                Description : ${info.description} <br/>
-                couleurs disponibles : ${info.colors.join(" / ")}<br>
-                Prix : <span id="couleur" style="color:red; font-size: 22px;">${info.price/100} €</span><br>
+                Description : ${eachTeddie.description} <br/>
+                couleurs disponibles : ${eachTeddie.colors.join(" / ")}<br>
+                Prix : <span id="couleur" style="color:red; font-size: 22px;">${eachTeddie.price/100} €</span><br>
                 </p>
 
-                <a href="product.html?id=${info._id}" class="btn btn-dark">Personnaliser</a>
+                <a href="product.html?id=${eachTeddie._id}" class="btn btn-dark">Personnaliser</a>
                 </div>
             </div>
             </div>`
         }).join("");
     
-    document.querySelector("#element").insertAdjacentHTML("afterbegin", html); /* insertion du html */
+    document.querySelector("#element").insertAdjacentHTML("afterbegin", allCards); /* insertion du html */
 
 })
 .catch(e =>{
     console.log("Il y a eu un problème avec l\'opération fetch");
 })
+
+
+document.getElementById("itemNumb").innerHTML = localStorage.nombreDeProduit
