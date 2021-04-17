@@ -7,5 +7,5 @@ document.getElementById("nomClient").innerHTML = nomClient
 document.getElementById("numCommande").innerHTML = numCommande
 document.getElementById("prixTotale").innerHTML = prixTotale
 
-localStorage.clear()
+localStorage.clear() /* supression du localstorage */
 

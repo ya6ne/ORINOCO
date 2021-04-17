@@ -38,14 +38,14 @@ fetch(apiUrl + id)
      
      
 
-    document.getElementById("btn").addEventListener("click", function(e){ 
-        var data2 = [data.name, document.getElementById("c-select").value,data.price, data._id]
-        let myStorage = JSON.parse(localStorage.getItem("product"));
+    document.getElementById("btn").addEventListener("click", function(e){  /* en cliquant sur le bouton "ajouter au panier" on stock les data dans le localstorage*/
+        var pSelected = [data.name, document.getElementById("c-select").value,data.price, data._id]
         
+        let myStorage = JSON.parse(localStorage.getItem("product"));
         if(!myStorage){
             myStorage = []
         }
-        myStorage.push(data2);
+        myStorage.push(pSelected);
         localStorage.setItem("product", JSON.stringify(myStorage));
     })
 })
@@ -53,7 +53,7 @@ fetch(apiUrl + id)
     console.log("Il y a eu un problème avec l\'opération fetch");
 })
 
-if(!localStorage.nombreDeProduit){
+if(!localStorage.nombreDeProduit){ 
     document.getElementById("itemNumb").innerHTML = 0
   } else {
     document.getElementById("itemNumb").innerHTML = localStorage.nombreDeProduit

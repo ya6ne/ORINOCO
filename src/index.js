@@ -1,5 +1,5 @@
 
-fetch(apiUrl)
+fetch(apiUrl) /* Url est dans config.js */
 .then(response => {
     if (response.ok){
         return response.json();
@@ -40,7 +40,7 @@ fetch(apiUrl)
 })
 
 
-if(!localStorage.nombreDeProduit){
+if(!localStorage.nombreDeProduit){ /* afficher le nombre de produits dans le panier (n) */
     document.getElementById("itemNumb").innerHTML = 0
   } else {
     document.getElementById("itemNumb").innerHTML = localStorage.nombreDeProduit
