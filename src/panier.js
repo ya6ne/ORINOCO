@@ -72,7 +72,7 @@ console.log(JSON.stringify(products))
     email : email
   }
 
-  fetch(apiUrl+"order", { 
+  fetch("http://localhost:3000/api/teddies/order", { 
     method: 'POST', 
     body: JSON.stringify({contact, products}),
   

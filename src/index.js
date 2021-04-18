@@ -1,5 +1,5 @@
 
-fetch(apiUrl) /* Url est dans config.js */
+fetch("http://localhost:3000/api/teddies/") /* Url est dans config.js */
 .then(response => {
     if (response.ok){
         return response.json();

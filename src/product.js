@@ -2,7 +2,7 @@ let params = new URLSearchParams(document.location.search.substring(1)); /* recu
 let id = params.get("id");
 console.log(id);
 
-fetch(apiUrl + id)
+fetch("http://localhost:3000/api/teddies/" + id)
 .then(response => {
     if (response.ok){
         return response.json();
